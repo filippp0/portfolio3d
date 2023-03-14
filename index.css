@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --index: calc(1vw + 1vh);
+  --gutter: 10px;
+  --side-small: 26;
+  --side-big: 34;
+  --depth: 3700px;
+  --transition: .75s cubic-bezier(.075, .5, 0, 1);
+}
+
+.page {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+  color: aliceblue;
+  font-size: calc(var(--index) * .8);
+  line-height: 1.75;
+  height: var(--depth);
+  font-weight: 300;
+}
+/* @media screen and (max-width: 769px) {
+  .page {
+    height: 3000px;
+  }
+} */
+
+.page__container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  perspective: 2000px;
+}
+/* @media screen and (max-width: 500px) {
+  .page__container {
+    perspective: 1500px;
+  }
+} */
+.galery {
+  transform-style: preserve-3d;
+  height: 100%;
+}
+
+.galery__frame {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition), opacity 0.75s ease;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.galery__item-title {
+  position: relative;
+  text-align: center;
+  max-width: calc(var(--index)*36);
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: calc(var(--index) * 3);
+}
+
+.galery__item-list {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  white-space: pre-wrap;
+  text-align: center;
+  width: calc(var(--index)*15);
+  font-weight: 100;
+  font-size: calc(var(--index) * 1);
+  line-height: 1.25;
+}
+
+.galery__image {
+  position: relative;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: calc(var(--index)*var(--side-big));
+  height: calc(var(--index)*var(--side-small));
+}
+
+.galery__frame_pr_first {
+  width: calc(var(--index)*42);
+}
+
+.galery__frame_filter_all {
+  background-color: black;
+}
+
+.galery__frame_filter_on {
+  background-color: rgba(0, 0, 0, .9);
+}
+
+.galery__frame_filter_off {
+  background-color: transparent;
+}
+
+.galery__frame_pos_left {
+  left: calc(var(--side-big)/2*var(--index) + var(--gutter))
+}
+
+.galery__frame_pos_right {
+  right: calc((var(--index)*36)/5 + var(--gutter));
+}
